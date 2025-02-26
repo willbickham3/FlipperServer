@@ -22,7 +22,7 @@ router.get('/LibraryMembers', (req, res) =>
         });
     });
 
-router.post('/createLibraryMember', async (req, res) => {
+router.post('/insertLibraryMember', async (req, res) => {
     const { email, username, name, password } = req.body;
     const passwordHash = await hash(password);
     const insertQuery = `INSERT INTO LibraryMembers (email, username, name, passwordHash) 
