@@ -2,8 +2,6 @@ const express = require('express')
 const app = express();
 const argon2 = require('argon2')
 const cors = require('cors');
-const fs = require('fs')
-const https = require('https')
 
 PORT = 6834
 
