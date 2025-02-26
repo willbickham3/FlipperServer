@@ -1,10 +1,18 @@
 const express = require('express')
 const router = express.Router()
+const argon2 = require('argon2')
 const db = require('../db-connector')
 
 // /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever stop FlipperServer.js
 // 
 
+
+// Password Hashing Function
+async function hash(password) {
+    return await argon2.hash(`${password}`);
+}
+
+// SELECT's all entries from LibraryMembers Table
 router.get('/LibraryMembers', (req, res) =>
     {
         query1 = 'SELECT * FROM LibraryMembers;';
@@ -13,10 +21,6 @@ router.get('/LibraryMembers', (req, res) =>
             res.send(JSON.stringify(results))
         });
     });
-
-async function hash(password) {
-    return await argon2.hash(`${password}`);
-}
 
 router.post('/createLibraryMember', async (req, res) => {
     const { email, username, name, password } = req.body;
