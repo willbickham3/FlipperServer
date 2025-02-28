@@ -3,9 +3,6 @@ const router = express.Router();
 const db = require('../db-connector');
 const argon2 = require('argon2');
 
-// /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever stop FlipperServer.js
-// 
-
 // Password Hashing Function
 async function hash(password) {
     return await argon2.hash(`${password}`);
