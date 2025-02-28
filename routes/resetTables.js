@@ -11,12 +11,13 @@ router.post('/resetTables', (req, res) => {
     TRUNCATE TABLE MemberCheckouts;
     TRUNCATE TABLE MemberFees;
     
-    INSERT INTO LibraryMembers(email, username, name, passwordHash) VALUES
-    ('jacksheperd@gmail.com', 'jacksheepherder', 'Jack Sheperd', 'swordfish500'),
-    ('kateausten@yahoo.com', 'Kate111Austen', 'Kate Austen', '123dandelion'),
-    ('johnlocke@outlook.com', 'LockedInJohn', 'John Locke', 'qwerty54321'),
-    ('benlinus@hotmail.com', 'big_ben_5', 'Ben Linus', '@pple'),
-    ('hugoreyes@aol.com', 'HUGE_HUGO', 'Hugo Reyes', 'aaa111!!!');
+    INSERT INTO LibraryMembers(email, username, name, passwordHash)
+    VALUES
+    ('jacksheperd@gmail.com', 'jacksheepherder', 'Jack Sheperd', '$argon2id$v=19$m=65536,t=3,p=4$pinmMRzkGrlcqkosToRiXw$0lf/nm+xHBpK42srmGx2aX5pWDSIO2ilrBosRM0z1z8'),
+    ('kateausten@yahoo.com', 'Kate111Austen', 'Kate Austen', '$argon2id$v=19$m=65536,t=3,p=4$OwGIkjUkKd2nL1+WN7p5lg$GJqQj+G9Oi3aiCz+bcY6hcEjL0EFK4Wp4ZDYRIfbbw4'),
+    ('johnlocke@outlook.com', 'LockedInJohn', 'John Locke', '$argon2id$v=19$m=65536,t=3,p=4$IwC6q5wogCt+qtPajEIHJQ$OIc4woJVau2JXDtFCgJyEB7XqgZX4+XqtAxb2gHbzbo'),
+    ('benlinus@hotmail.com', 'big_ben_5', 'Ben Linus', '$argon2id$v=19$m=65536,t=3,p=4$jwb90439Rrmzscrlci+gKg$PsCGmbt9EQ9fbcyooEtYhxWIegmiK3MJpVh33yzdCDI'),
+    ('hugoreyes@aol.com', 'HUGE_HUGO', 'Hugo Reyes', '$argon2id$v=19$m=65536,t=3,p=4$LBg9js/mkMV1uekAk96u0Q$T0q1QROfn0d8cWUjvv5vpzirDshA/xqFQLLsbD7zsO8');
 
     INSERT INTO Books (title, author, isbn, genre, publisher)
     VALUES 
