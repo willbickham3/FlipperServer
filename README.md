@@ -27,3 +27,8 @@
 
 ### Resetting Tables
 - Reset: http://classwork.engr.oregonstate.edu:6834/rt/resetTables
+
+
+// /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever start FlipperServer.js 
+// /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever stop FlipperServer.js
+
