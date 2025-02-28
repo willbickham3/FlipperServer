@@ -11,13 +11,15 @@ app.use(express.urlencoded({ extended: true }));
 const libraryMembersRoutes = require('./routes/libraryMembers');
 const books = require('./routes/books');
 const memberCheckouts = require('./routes/memberCheckouts');
-const memberFees = require('./routes/memberFees')
+const memberFees = require('./routes/memberFees');
+const resetTables = require('./routes/resetTables');
 
 // Pointing to the routes
 app.use('/lm', libraryMembersRoutes);
 app.use('/b', books);
 app.use('/mc', memberCheckouts);
 app.use('/mf', memberFees);
+app.use('/rt', resetTables);
 
 
 app.listen(PORT, () => 
