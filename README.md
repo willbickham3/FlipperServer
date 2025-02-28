@@ -24,3 +24,6 @@
 - Create: http://classwork.engr.oregonstate.edu:6834/mf/insertMemberFee
 - Update: http://classwork.engr.oregonstate.edu:6834/mf/updateMemberFee
 - Delete: http://classwork.engr.oregonstate.edu:6834/mf/deleteMemberfee
+
+### Resetting Tables
+- Reset: http://classwork.engr.oregonstate.edu:6834/rt/resetTables
