@@ -35,15 +35,13 @@ router.post('/insertLibraryMember', async (req, res) => {
 
 router.put('/updateLibraryMember', async (req, res) => {
     const { email, username, name, password, libraryMemberID } = req.body;
-    const passwordHash = await hash(password)
     const updateQuery = `UPDATE LibraryMembers SET 
     email = ?, 
     username = ?,
-    name = ?,
-    passwordHash = ?
+    name = ?
     WHERE libraryMemberID = ?
     `
-    db.pool.query(updateQuery, [email, username, name, passwordHash, libraryMemberID], (error, results) => {
+    db.pool.query(updateQuery, [email, username, name, libraryMemberID], (error, results) => {
         if (error) {
             console.error('Database error:', error);
             return res.status(500).json({ error: 'Database update failed' });
