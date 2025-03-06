@@ -10,12 +10,61 @@ router.get('/MemberCheckouts', (req, res) => {
 })
 
 // // INSERT a new checkout
-// router.post('/insertMemberCheckout', (req, res) => {})
+router.post('/insertMemberCheckout', (req, res) => {
+    const { email, title } = req.body
+    const insertQuery = `
+                        INSERT INTO MemberCheckouts (checkoutDate, returnDate, libraryMemberID, bookID)
+                        VALUES (
+                        CURDATE(), 
+                        DATE_ADD(CURDATE(), 
+                        INTERVAL 14 DAY), 
+                        (SELECT libraryMemberID FROM LibraryMembers WHERE email = ?), 
+                        (SELECT bookID FROM Books WHERE title = ?)
+                        );
+                        `
+    db.pool.query(insertQuery, [email, title], (error, results) => {
+        if (error) {
+            console.error('Database error:', error);
+            return res.status(500).json({ error: 'Database create failed' });
+        }
+        res.json({ message: `Checkout created successfully: ${results}` });
+    })
+})
 
 // // UPDATE a checkout
-// router.put('/updateMemberCheckout', (req, res) => {})
+router.put('/updateMemberCheckout', (req, res) => {
+    const { checkoutDate, returnDate, email, title, memberCheckoutID } = req.body;
+    const updateQuery = `
+                        UPDATE MemberCheckouts SET
+                        checkoutDate = ?,
+                        returnDate = ?,
+                        libraryMemberID = (SELECT libraryMemberID FROM LibraryMembers WHERE email = ?),
+                        bookID = (SELECT bookID FROM Books WHERE title = ?)
+                        WHERE memberCheckoutID = ?;
+                        `
+    db.pool.query(updateQuery, [checkoutDate, returnDate, email, title, memberCheckoutID], (error, results) => {
+        if (error) {
+            console.error('Database error:', error);
+            return res.status(500).json({ error: 'MemberCheckouts create failed' });
+        }
+        res.json({ message: `Member checkout updated successfully: ${results}` });
+    });
+})
 
 // // DELETE a checkout
-// router.delete('/deleteMemberCheckout', (req, res) => {})
+router.delete('/deleteMemberCheckout', (req, res) => {
+    const { memberCheckoutID } = req.body;
+    const deleteQuery = `DELETE FROM MemberCheckouts WHERE memberCheckoutID = ?;`
+    db.pool.query(deleteQuery, [memberCheckoutID], (error, results) => {
+        if (error) {
+            console.log('Database Error: ', error);
+            return res.status(500).json({ error: 'MemberCheckouts Delete Failed'})
+        }
+        if (results.affectedRows ===0) {
+            return res.status(404).json({ error: 'Checkout not found. Check your spelling!'})
+        }
+        res.json({ message: `Checkout deleted successfully: ${results}` });
+    });
+})
 
 module.exports = router;
