@@ -41,9 +41,42 @@
 
 ### Books
 1. Read:   http://classwork.engr.oregonstate.edu:6834/b/Books
+    - **Description**
 2. Create: http://classwork.engr.oregonstate.edu:6834/b/insertBook
+    - **Description**
+        - Inserts a new entry into the Books entity
+    - Example JSON Body Parameters
+        ```
+        {
+            "title":     "The Lord of the Rings",
+            "author":    "J. R. R. Tolkien",
+            "isbn":      "0618645616",
+            "genre":     "Fiction",
+            "publisher": "William Morrow"
+        }
+        ```
 3. Update: http://classwork.engr.oregonstate.edu:6834/b/updateBook
+    - **Description**
+        - Updates an existing entry in the Books entity
+    - Example JSON Body Parameters
+        ```
+        {
+            "title":     "The Lord of the Rings",
+            "author":    "J. R. R. Tolkien",
+            "isbn":      "0618645616",
+            "genre":     "High-Fantasy",
+            "publisher": "William Morrow"
+        }
+        ```
 4. Delete: http://classwork.engr.oregonstate.edu:6834/b/deleteBook
+    - **Description**
+        - Deletes a book from the Books entity
+    - Example JSON Body Parameters
+        ```
+        {
+            "email":    "The Lord of the Rings"
+        }
+        ```
 
 ### MemberCheckouts
 1. Read:   http://classwork.engr.oregonstate.edu:6834/mc/MemberCheckouts
