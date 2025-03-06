@@ -34,12 +34,12 @@ router.post('/insertLibraryMember', async (req, res) => {
 });
 
 router.put('/updateLibraryMember', async (req, res) => {
-    const { email, username, name, password, libraryMemberID } = req.body;
+    const { email, username, name, libraryMemberID } = req.body;
     const updateQuery = `UPDATE LibraryMembers SET 
     email = ?, 
     username = ?,
     name = ?
-    WHERE libraryMemberID = ?
+    WHERE libraryMemberID = ?;
     `
     db.pool.query(updateQuery, [email, username, name, libraryMemberID], (error, results) => {
         if (error) {
@@ -57,7 +57,7 @@ router.put('/updateLibraryMember', async (req, res) => {
 
 router.delete('/deleteLibraryMember', async (req, res) => {
     const { email } = req.body;
-    const deleteQuery = `DELETE FROM LibraryMembers WHERE email = ?`
+    const deleteQuery = `DELETE FROM LibraryMembers WHERE email = ?;`
     db.pool.query(deleteQuery, [email], (error, results) => {
         if (error) {
             console.log('Database Error: ', error);
