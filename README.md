@@ -65,7 +65,8 @@
             "author":    "J. R. R. Tolkien",
             "isbn":      "0618645616",
             "genre":     "High-Fantasy",
-            "publisher": "William Morrow"
+            "publisher": "William Morrow",
+            "bookID": 6
         }
         ```
 4. Delete: http://classwork.engr.oregonstate.edu:6834/b/deleteBook
@@ -74,7 +75,7 @@
     - Example JSON Body Parameters
         ```
         {
-            "email":    "The Lord of the Rings"
+            "title":    "The Lord of the Rings"
         }
         ```
 
