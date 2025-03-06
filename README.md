@@ -18,7 +18,26 @@
         }
         ```
 3. Update: http://classwork.engr.oregonstate.edu:6834/lm/updateLibraryMember
+    - **Description**
+        - Updates an existing member of the LibraryMembers Entity
+    - Example JSON Body Parameters
+        ```
+        {
+            "email":    "neo_theone@gmail.com",
+            "username": "neo01",
+            "name":     "Neo",
+            "libraryMemberID": 6
+        }
+        ```
 4. Delete: http://classwork.engr.oregonstate.edu:6834/lm/deleteLibraryMember
+    - **Description**
+        - Deletes a member of the LibraryMembers Entity
+    - Example JSON Body Parameters
+        ```
+        {
+            "email":    "neo_theone@gmail.com"
+        }
+        ```
 
 ### Books
 1. Read:   http://classwork.engr.oregonstate.edu:6834/b/Books
