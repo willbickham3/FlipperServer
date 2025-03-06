@@ -3,8 +3,20 @@
 ## List of Endpoints
 ### LibraryMembers
 1. Read:   http://classwork.engr.oregonstate.edu:6834/lm/LibraryMembers
-    # Description
+    - Description
+        - Reads all the current entries in the LibraryMembers Entity, providing a list of members and relevant information
 2. Create: http://classwork.engr.oregonstate.edu:6834/lm/insertLibraryMember
+    - Description
+        - Inserts a new member into the LibraryMembers Entity
+    - Example JSON Body Parameters
+        ```
+        {
+            "email":    "agentsmith@gmail.com",
+            "username": "agentsmith00",
+            "name":     "Agent Smith",
+            "password": "theoneisamyth123",
+        }
+        ```
 3. Update: http://classwork.engr.oregonstate.edu:6834/lm/updateLibraryMember
 4. Delete: http://classwork.engr.oregonstate.edu:6834/lm/deleteLibraryMember
 
