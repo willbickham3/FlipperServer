@@ -2,33 +2,34 @@
 
 ## List of Endpoints
 ### LibraryMembers
-- Read:   http://classwork.engr.oregonstate.edu:6834/lm/LibraryMembers
-- Create: http://classwork.engr.oregonstate.edu:6834/lm/insertLibraryMember
-- Update: http://classwork.engr.oregonstate.edu:6834/lm/updateLibraryMember
-- Delete: http://classwork.engr.oregonstate.edu:6834/lm/deleteLibraryMember
+1. Read:   http://classwork.engr.oregonstate.edu:6834/lm/LibraryMembers
+    # Description
+2. Create: http://classwork.engr.oregonstate.edu:6834/lm/insertLibraryMember
+3. Update: http://classwork.engr.oregonstate.edu:6834/lm/updateLibraryMember
+4. Delete: http://classwork.engr.oregonstate.edu:6834/lm/deleteLibraryMember
 
 ### Books
-- Read:   http://classwork.engr.oregonstate.edu:6834/b/Books
-- Create: http://classwork.engr.oregonstate.edu:6834/b/insertBook
-- Update: http://classwork.engr.oregonstate.edu:6834/b/updateBook
-- Delete: http://classwork.engr.oregonstate.edu:6834/b/deleteBook
+1. Read:   http://classwork.engr.oregonstate.edu:6834/b/Books
+2. Create: http://classwork.engr.oregonstate.edu:6834/b/insertBook
+3. Update: http://classwork.engr.oregonstate.edu:6834/b/updateBook
+4. Delete: http://classwork.engr.oregonstate.edu:6834/b/deleteBook
 
 ### MemberCheckouts
-- Read:   http://classwork.engr.oregonstate.edu:6834/mc/MemberCheckouts
-- Create: http://classwork.engr.oregonstate.edu:6834/mc/insertMemberCheckout
-- Update: http://classwork.engr.oregonstate.edu:6834/mc/updateMemberCheckout
-- Delete: http://classwork.engr.oregonstate.edu:6834/mc/deleteMemberCheckout
+1. Read:   http://classwork.engr.oregonstate.edu:6834/mc/MemberCheckouts
+2. Create: http://classwork.engr.oregonstate.edu:6834/mc/insertMemberCheckout
+3. Update: http://classwork.engr.oregonstate.edu:6834/mc/updateMemberCheckout
+4. Delete: http://classwork.engr.oregonstate.edu:6834/mc/deleteMemberCheckout
 
 ### MemberFees
-- Read:   http://classwork.engr.oregonstate.edu:6834/mf/MemberFees
-- Create: http://classwork.engr.oregonstate.edu:6834/mf/insertMemberFee
-- Update: http://classwork.engr.oregonstate.edu:6834/mf/updateMemberFee
-- Delete: http://classwork.engr.oregonstate.edu:6834/mf/deleteMemberfee
+1. Read:   http://classwork.engr.oregonstate.edu:6834/mf/MemberFees
+2. Create: http://classwork.engr.oregonstate.edu:6834/mf/insertMemberFee
+3. Update: http://classwork.engr.oregonstate.edu:6834/mf/updateMemberFee
+4. Delete: http://classwork.engr.oregonstate.edu:6834/mf/deleteMemberfee
 
 ### Resetting Tables
 - Reset: http://classwork.engr.oregonstate.edu:6834/rt/resetTables
 
-
-// /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever start FlipperServer.js 
-// /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever stop FlipperServer.js
+### Forever Commands for OSU DB Hosting
+- /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever start FlipperServer.js 
+- /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever stop FlipperServer.js
 
