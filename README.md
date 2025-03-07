@@ -1,5 +1,29 @@
 # FlipperServer
 
+## Overview
+### Installation
+
+1. Clone the Repository 
+```
+git clone https://github.com/willbickham3/FlipperServer.git
+npm install
+```
+
+2. Install the dependencies
+```
+npm install
+```
+
+3. Update the db-connector.js file with your MySQL/MariaDB credentials.
+
+4. Start the Server
+```
+npm start
+```
+
+### Base URL for the API
+http://classwork.engr.oregonstate.edu:6834
+
 ## List of Endpoints
 - [LibraryMembers](#LibraryMembers)
 - [Books](#Books)
