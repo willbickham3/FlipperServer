@@ -29,7 +29,7 @@ http://classwork.engr.oregonstate.edu:6834
 - [Books](#Books)
 - [MemberCheckouts](#MemberCheckouts)
 - [MemberFees](#MemberFees)
-- [ResetTables](#resetting-tables)
+- [Utility](#Utility)
 
 
 # LibraryMembers
@@ -185,9 +185,11 @@ http://classwork.engr.oregonstate.edu:6834
         }
         ```
 
-# Resetting Tables
+# Utility
 - [Return to top](#flipperserver)
-- Reset: http://classwork.engr.oregonstate.edu:6834/rt/resetTables
+- Reset Tables: http://classwork.engr.oregonstate.edu:6834/rt/resetTables
+- Dropdown Query (Emails): http://classwork.engr.oregonstate.edu:6834/dd/emails
+- DropDown Query (Titles): http://classwork.engr.oregonstate.edu:6834/dd/titles
 
 ### Forever Commands for OSU DB Hosting
 - /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever start FlipperServer.js 
