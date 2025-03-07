@@ -1,13 +1,14 @@
 # FlipperServer
 
 ## List of Endpoints
-- [LibraryMembers](###LibraryMembers)
-- [Books](###Books)
-- [MemberCheckouts](###MemberCheckouts)
-- [MemberFees](###MemberFees)
+- [LibraryMembers](#LibraryMembers)
+- [Books](#Books)
+- [MemberCheckouts](#MemberCheckouts)
+- [MemberFees](#MemberFees)
+- [ResetTables](#resetting-tables)
 
 
-### LibraryMembers
+# LibraryMembers
 1. Read:   http://classwork.engr.oregonstate.edu:6834/lm/LibraryMembers
     - **Description**
         - Reads all the current entries in the LibraryMembers Entity, providing a list of members and relevant information
@@ -45,7 +46,7 @@
         }
         ```
 
-### Books
+# Books
 1. Read:   http://classwork.engr.oregonstate.edu:6834/b/Books
     - **Description**
 2. Create: http://classwork.engr.oregonstate.edu:6834/b/insertBook
@@ -85,7 +86,7 @@
         }
         ```
 
-### MemberCheckouts
+# MemberCheckouts
 1. Read:   http://classwork.engr.oregonstate.edu:6834/mc/MemberCheckouts
 2. Create: http://classwork.engr.oregonstate.edu:6834/mc/insertMemberCheckout
     - **Description**
@@ -120,7 +121,7 @@
         }
         ```
 
-### MemberFees
+# MemberFees
 1. Read:   http://classwork.engr.oregonstate.edu:6834/mf/MemberFees
 2. Create: http://classwork.engr.oregonstate.edu:6834/mf/insertMemberFee
     - **Description**
@@ -156,7 +157,7 @@
         }
         ```
 
-### Resetting Tables
+# Resetting Tables
 - Reset: http://classwork.engr.oregonstate.edu:6834/rt/resetTables
 
 ### Forever Commands for OSU DB Hosting
