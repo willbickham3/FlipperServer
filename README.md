@@ -117,8 +117,38 @@
 ### MemberFees
 1. Read:   http://classwork.engr.oregonstate.edu:6834/mf/MemberFees
 2. Create: http://classwork.engr.oregonstate.edu:6834/mf/insertMemberFee
+    - **Description**
+        - Inserts a fee into the MemberFees entity
+    - Example JSON Body Parameters
+        ```
+        {
+            "feeAmount": 0.25,
+            "title": "The Lord of the Rings",
+            "email": "agentsmith@gmail.com"
+        }
+        ```
 3. Update: http://classwork.engr.oregonstate.edu:6834/mf/updateMemberFee
+    - **Description**
+        - Updates a fee from the MemberFees entity
+    - Example JSON Body Parameters
+        ```
+        {
+            "email": "agentsmith@gmail.com",
+            "title": "The Lord of the Rings",
+            "feeAmount": 2.00,
+            "paymentStatus": "unpaid",
+            "memberFeeID": 6
+        }
+        ```
 4. Delete: http://classwork.engr.oregonstate.edu:6834/mf/deleteMemberfee
+    - **Description**
+        - Deletes a fee from the MemberFees entity
+    - Example JSON Body Parameters
+        ```
+        {
+            "memberFeeID": 6
+        }
+        ```
 
 ### Resetting Tables
 - Reset: http://classwork.engr.oregonstate.edu:6834/rt/resetTables
