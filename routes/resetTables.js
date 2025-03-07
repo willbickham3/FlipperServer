@@ -5,7 +5,8 @@ const db = require('../db-connector');
 router.post('/resetTables', (req, res) => {
     const resetQuery = 
     `
-    SET FOREIGN_KEY_CHECKS = 0; -- Temporarily disable foreign key constraints
+    SET FOREIGN_KEY_CHECKS = 0;
+    
     TRUNCATE TABLE LibraryMembers;
     TRUNCATE TABLE Books;
     TRUNCATE TABLE MemberCheckouts;
