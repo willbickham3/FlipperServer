@@ -82,8 +82,37 @@
 ### MemberCheckouts
 1. Read:   http://classwork.engr.oregonstate.edu:6834/mc/MemberCheckouts
 2. Create: http://classwork.engr.oregonstate.edu:6834/mc/insertMemberCheckout
+    - **Description**
+        - Inserts a checkout into the MemberCheckouts entity
+    - Example JSON Body Parameters
+        ```
+        {
+            "email": "agentsmith@gmail.com",
+            "title": "The Lord of the Rings"
+        }
+        ```
 3. Update: http://classwork.engr.oregonstate.edu:6834/mc/updateMemberCheckout
+    - **Description**
+        - Updates a checkout from the MemberCheckouts entity
+    - Example JSON Body Parameters
+        ```
+        {
+            "checkoutDate": "03-06-2025",
+            "returnDate": "03-20-2025",
+            "email": ""agentsmith@gmail.com,
+            "title": "Shutter Island",
+            "memberCheckoutID": 6
+        }
+        ```
 4. Delete: http://classwork.engr.oregonstate.edu:6834/mc/deleteMemberCheckout
+    - **Description**
+        - Deletes a checkout from the MemberCheckouts entity
+    - Example JSON Body Parameters
+        ```
+        {
+            "memberCheckoutID": 6
+        }
+        ```
 
 ### MemberFees
 1. Read:   http://classwork.engr.oregonstate.edu:6834/mf/MemberFees
