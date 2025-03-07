@@ -13,6 +13,7 @@ const books = require('./routes/books');
 const memberCheckouts = require('./routes/memberCheckouts');
 const memberFees = require('./routes/memberFees');
 const resetTables = require('./routes/resetTables');
+const dropDowns = require('./routes/dropDown')
 
 // Pointing to the routes
 app.use('/lm', libraryMembersRoutes);
@@ -20,6 +21,7 @@ app.use('/b', books);
 app.use('/mc', memberCheckouts);
 app.use('/mf', memberFees);
 app.use('/rt', resetTables);
+app.use('/dd', dropDowns)
 
 
 app.listen(PORT, () => 
