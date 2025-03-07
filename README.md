@@ -1,6 +1,12 @@
 # FlipperServer
 
 ## List of Endpoints
+- [LibraryMembers](###LibraryMembers)
+- [Books](###Books)
+- [MemberCheckouts](###MemberCheckouts)
+- [MemberFees](###MemberFees)
+
+
 ### LibraryMembers
 1. Read:   http://classwork.engr.oregonstate.edu:6834/lm/LibraryMembers
     - **Description**
