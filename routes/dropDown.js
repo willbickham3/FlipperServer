@@ -17,4 +17,17 @@ router.get('/titles', (req, res) => {
     })
 })
 
+router.get('/checkouts', (req, res) => {
+    const readAllCheckouts = `
+                            SELECT lm.email, b.title FROM
+                            MemberCheckouts AS mc
+                            LEFT JOIN LibraryMembers AS lm ON mc.libraryMemberID = lm.libraryMemberID
+                            LEFT JOIN Books AS b ON mc.bookID = b.bookID
+                            ORDER BY lm.libraryMemberID ASC;
+                             `
+    db.pool.query(readAllCheckouts, (error, results) => {
+        res.send(JSON.stringify(results))
+    })            
+})
+
 module.exports = router
