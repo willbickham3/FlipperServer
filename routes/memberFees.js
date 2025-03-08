@@ -26,7 +26,9 @@ router.post('/insertMemberFee', (req, res) => {
                         FROM LibraryMembers AS lm
                         LEFT JOIN MemberCheckouts AS mc ON lm.libraryMemberID = mc.libraryMemberID
                         LEFT JOIN Books as b ON mc.bookID = b.bookID
-                        WHERE (b.title = ? OR ? IS NULL) AND lm.email = ?;
+                        WHERE (b.title = ? OR ? IS NULL) AND lm.email = ?
+                        ON DUPLICATE KEY UPDATE 
+                        feeAmount = feeAmount + VALUES(feeAmount);
                         `
     db.pool.query(insertQuery, [titleCheck, feeAmount, titleCheck, titleCheck, email], (error, results) => {
         if (error) {
@@ -57,9 +59,11 @@ router.put('/updateMemberFee', (req, res) => {
                         END,
                         feeAmount = ?,
                         paymentStatus = ?
-                        WHERE memberFeeID = ?;
+                        WHERE memberFeeID = ?
+                        ON DUPLICATE KEY UPDATE
+                        feeAmount = values(feeAmount)
                         `
-    db.pool.query(updateQuery, [email, titleCheck, titleCheck, email, titleCheck, titleCheck, feeAmount, paymentStatus, memberFeeID], (error, results) => {
+    db.pool.query(updateQuery, [email, titleCheck, titleCheck, email, titleCheck, titleCheck, feeAmount, paymentStatus, memberFeeID, titleCheck], (error, results) => {
         if (error) {
             console.error('Database error:', error);
             return res.status(500).json({ error: 'MemberCheckouts create failed' });
