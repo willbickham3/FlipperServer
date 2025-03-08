@@ -12,15 +12,23 @@ router.get('/MemberFees', (req, res) => {
 // // INSERT a new fee
 router.post('/insertMemberFee', (req, res) => {
     const { feeAmount, title, email} = req.body
+    const titleCheck = title === "" ? null : title;
+    console.log(titleCheck)
     const insertQuery = `
                         INSERT INTO MemberFees (libraryMemberID, memberCheckoutID, feeAmount)
-                        SELECT lm.libraryMemberID, mc.memberCheckoutID, ?
-                        FROM MemberCheckouts AS mc
-                        JOIN LibraryMembers AS lm ON mc.libraryMemberID = lm.libraryMemberID
-                        JOIN Books as b ON mc.bookID = b.bookID
-                        WHERE b.title = ? AND lm.email = ?;
+                        SELECT 
+                        lm.libraryMemberID,
+                        CASE
+                            WHEN ? is NULL THEN NULL
+                            ELSE mc.memberCheckoutID
+                        END AS memberCheckoutID,
+                        ?
+                        FROM LibraryMembers AS lm
+                        LEFT JOIN MemberCheckouts AS mc ON lm.libraryMemberID = mc.libraryMemberID
+                        LEFT JOIN Books as b ON mc.bookID = b.bookID
+                        WHERE (b.title = ? OR ? IS NULL) AND lm.email = ?;
                         `
-    db.pool.query(insertQuery, [feeAmount, title, email], (error, results) => {
+    db.pool.query(insertQuery, [titleCheck, feeAmount, titleCheck, titleCheck, email], (error, results) => {
         if (error) {
             console.error('Database error:', error);
             return res.status(500).json({ error: 'MemberFees create failed' });
@@ -32,6 +40,7 @@ router.post('/insertMemberFee', (req, res) => {
 // // UPDATE a fee
 router.put('/updateMemberFee', (req, res) => {
     const { email, title, feeAmount, paymentStatus, memberFeeID } = req.body;
+    const titleCheck = title === "" ? null : title;
     const updateQuery = `
                         UPDATE MemberFees SET 
                         libraryMemberID = (SELECT libraryMemberID FROM LibraryMembers WHERE email = ?),
@@ -50,7 +59,7 @@ router.put('/updateMemberFee', (req, res) => {
                         paymentStatus = ?
                         WHERE memberFeeID = ?;
                         `
-    db.pool.query(updateQuery, [email, title, title, email, title, title, feeAmount, paymentStatus, memberFeeID], (error, results) => {
+    db.pool.query(updateQuery, [email, titleCheck, titleCheck, email, titleCheck, titleCheck, feeAmount, paymentStatus, memberFeeID], (error, results) => {
         if (error) {
             console.error('Database error:', error);
             return res.status(500).json({ error: 'MemberCheckouts create failed' });
