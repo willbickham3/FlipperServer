@@ -4,7 +4,16 @@ const db = require('../db-connector');
 
 // SELECT's all fees in MemberFees table
 router.get('/MemberFees', (req, res) => {
-    const getAllFees = 'SELECT * FROM MemberFees;'
+    const getAllFees = `
+                       SELECT 
+                       mf.*,
+                       lm.email,
+                       b.title
+                       FROM MemberFees AS mf
+                       JOIN LibraryMembers AS lm ON mf.libraryMemberID = lm.libraryMemberID
+                       LEFT JOIN MemberCheckouts AS mc ON mf.memberCheckoutID = mc.memberCheckoutID
+                       LEFT JOIN Books AS b ON mc.bookID = b.bookID;
+                       `
     db.pool.query(getAllFees, function (err, results, fields){
         res.send(JSON.stringify(results))});
 })
@@ -59,9 +68,7 @@ router.put('/updateMemberFee', (req, res) => {
                         END,
                         feeAmount = ?,
                         paymentStatus = ?
-                        WHERE memberFeeID = ?
-                        ON DUPLICATE KEY UPDATE
-                        feeAmount = values(feeAmount)
+                        WHERE memberFeeID = ?;
                         `
     db.pool.query(updateQuery, [email, titleCheck, titleCheck, email, titleCheck, titleCheck, feeAmount, paymentStatus, memberFeeID, titleCheck], (error, results) => {
         if (error) {
