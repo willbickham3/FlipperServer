@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db-connector');
 
-// SELECT's all fees in MemberFees table
+// SELECT's all fees and email/title combinations for checkouts based on existing checkoutIDs if they exist
 router.get('/MemberFees', (req, res) => {
     const getAllFees = `
                        SELECT 
@@ -18,11 +18,13 @@ router.get('/MemberFees', (req, res) => {
         res.send(JSON.stringify(results))});
 })
 
-// // INSERT a new fee
+// INSERT a new fee
 router.post('/insertMemberFee', (req, res) => {
     const { feeAmount, title, email} = req.body
     const titleCheck = title === "" ? null : title;
-    console.log(titleCheck)
+    
+    // Complicated Query //
+    // CASE checks for nulled title
     const insertQuery = `
                         INSERT INTO MemberFees (libraryMemberID, memberCheckoutID, feeAmount)
                         SELECT 
@@ -62,8 +64,6 @@ router.put('/updateMemberFee', (req, res) => {
                             JOIN LibraryMembers AS lm ON mc.libraryMemberID = lm.libraryMemberID
                             JOIN Books AS b ON mc.bookID = b.bookID
                             WHERE lm.email = ? AND (b.title = ? OR ? IS NULL)
-                            ORDER BY mc.checkoutDate DESC
-                            LIMIT 1
                         )
                         END,
                         feeAmount = ?,
