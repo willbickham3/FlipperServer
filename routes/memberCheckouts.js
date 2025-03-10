@@ -9,7 +9,7 @@ router.get('/MemberCheckouts', (req, res) => {
         res.send(JSON.stringify(results))});
 })
 
-// // INSERT a new checkout
+// INSERT a new checkout
 router.post('/insertMemberCheckout', (req, res) => {
     const { email, title } = req.body
     const insertQuery = `
@@ -31,7 +31,7 @@ router.post('/insertMemberCheckout', (req, res) => {
     })
 })
 
-// // UPDATE a checkout
+// UPDATE a checkout
 router.put('/updateMemberCheckout', (req, res) => {
     const { checkoutDate, returnDate, email, title, memberCheckoutID } = req.body;
     const updateQuery = `
@@ -51,7 +51,7 @@ router.put('/updateMemberCheckout', (req, res) => {
     });
 })
 
-// // DELETE a checkout
+// DELETE a checkout
 router.delete('/deleteMemberCheckout', (req, res) => {
     const { memberCheckoutID } = req.body;
     const deleteQuery = `DELETE FROM MemberCheckouts WHERE memberCheckoutID = ?;`
