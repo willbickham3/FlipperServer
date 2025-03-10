@@ -18,6 +18,7 @@ router.get('/LibraryMembers', (req, res) =>
         });
     });
 
+// CREATE/INSERT a library member
 router.post('/insertLibraryMember', async (req, res) => {
     const { email, username, name, password } = req.body;
     const passwordHash = await hash(password);
@@ -33,6 +34,7 @@ router.post('/insertLibraryMember', async (req, res) => {
     });
 });
 
+// UPDATE a library member
 router.put('/updateLibraryMember', async (req, res) => {
     const { email, username, name, libraryMemberID } = req.body;
     const updateQuery = `UPDATE LibraryMembers SET 
@@ -55,6 +57,7 @@ router.put('/updateLibraryMember', async (req, res) => {
     });
 })
 
+// DELETE a library member
 router.delete('/deleteLibraryMember', async (req, res) => {
     const { email } = req.body;
     const deleteQuery = `DELETE FROM LibraryMembers WHERE email = ?;`
