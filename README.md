@@ -190,6 +190,7 @@ http://classwork.engr.oregonstate.edu:6834
 - Reset Tables: http://classwork.engr.oregonstate.edu:6834/rt/resetTables
 - Dropdown Query (Emails): http://classwork.engr.oregonstate.edu:6834/dd/emails
 - DropDown Query (Titles): http://classwork.engr.oregonstate.edu:6834/dd/titles
+- DropDown Query (Email/Titles From MemberCheckouts): http://classwork.engr.oregonstate.edu:6834/dd/checkouts
 
 ### Forever Commands for OSU DB Hosting
 - /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever start FlipperServer.js 
