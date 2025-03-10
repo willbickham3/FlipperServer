@@ -11,7 +11,7 @@ router.get('/Books', (req, res) => {
         res.send(JSON.stringify(results))});
 })
 
-// // INSERT a new book
+// INSERT a new book
 router.post('/insertBook', (req, res) => {
     const { title, author, isbn, genre, publisher } = req.body;
     const insertQuery = `INSERT INTO Books (title, author, isbn, genre, publisher)
@@ -25,12 +25,14 @@ router.post('/insertBook', (req, res) => {
     });
 });
 
-// // UPDATE a book
+// UPDATE a book
 router.put('/updateBook', (req, res) => {
     const { title, author, isbn, genre, publisher, bookID } = req.body;
-    const updateQuery = `UPDATE Books SET
+    const updateQuery = `
+                        UPDATE Books SET
                         title = ?, author = ?, isbn = ?, genre = ?, publisher = ?
-                        WHERE bookID = ?;`
+                        WHERE bookID = ?;
+                        `
     db.pool.query(updateQuery, [title, author, isbn, genre, publisher, bookID], (error, results) => {
         if (error) {
             console.error('Database error:', error);
@@ -40,7 +42,7 @@ router.put('/updateBook', (req, res) => {
     });
 });
 
-// // DELETE a book
+// DELETE a book
 router.delete('/deleteBook', (req, res) => {
     const { title } = req.body;
     const deleteQuery = `DELETE FROM Books WHERE title = ?;`
