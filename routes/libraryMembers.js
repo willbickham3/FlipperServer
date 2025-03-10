@@ -11,9 +11,9 @@ async function hash(password) {
 // SELECT's all entries from LibraryMembers Table
 router.get('/LibraryMembers', (req, res) =>
     {
-        query1 = 'SELECT * FROM LibraryMembers;';
+        const getAllLibraryMembers = 'SELECT * FROM LibraryMembers;';
 
-        db.pool.query(query1, function (err, results, fields){
+        db.pool.query(getAllLibraryMembers, function (err, results, fields){
             res.send(JSON.stringify(results))
         });
     });
