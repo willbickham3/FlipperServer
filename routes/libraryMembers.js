@@ -8,12 +8,18 @@ async function hash(password) {
     return await argon2.hash(`${password}`);
 }
 
+
+// Citation for the following CRUD functions:
+// Date : 02/23/2025
+// Based on:
+// Source URL: https://canvas.oregonstate.edu/courses/1987790/assignments/9888486?module_item_id=25022943
+
 // SELECT's all entries from LibraryMembers Table
 router.get('/LibraryMembers', (req, res) =>
     {
         const getAllLibraryMembers = 'SELECT * FROM LibraryMembers;';
 
-        db.pool.query(getAllLibraryMembers, function (error, results, fields){
+        db.pool.query(getAllLibraryMembers, function (error, results){
             res.send(JSON.stringify(results))
         });
     });
