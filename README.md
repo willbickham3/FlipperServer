@@ -30,6 +30,7 @@ http://classwork.engr.oregonstate.edu:6834
 - [MemberCheckouts](#MemberCheckouts)
 - [MemberFees](#MemberFees)
 - [Utility](#Utility)
+- [Citations](#citations)
 
 
 # LibraryMembers
@@ -196,4 +197,5 @@ http://classwork.engr.oregonstate.edu:6834
 - /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever start FlipperServer.js 
 - /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever stop FlipperServer.js
 
+# Citations
 Michael Curry (February 2025) Building app.js (Version 1.0) [Source code](https://canvas.oregonstate.edu/courses/1987790/assignments/9888486?module_item_id=25022943)
