@@ -12,6 +12,11 @@ router.get('/MemberCheckouts', (req, res) => {
 // INSERT a new checkout
 router.post('/insertMemberCheckout', (req, res) => {
     const { email, title } = req.body
+
+    if (!email || !title) {
+        return res.status(400).json({ 'Error': 'Member Email or Book Title missing.'})
+    }
+
     const insertQuery = `
                         INSERT INTO MemberCheckouts (checkoutDate, returnDate, libraryMemberID, bookID)
                         VALUES (
@@ -34,6 +39,11 @@ router.post('/insertMemberCheckout', (req, res) => {
 // UPDATE a checkout
 router.put('/updateMemberCheckout', (req, res) => {
     const { checkoutDate, returnDate, email, title, memberCheckoutID } = req.body;
+
+    if (!checkoutDate || !returnDate || !email || !title) {
+        return res.status(400).json( {'Error:': 'Dates, email or title missing/incorrect format.'} )
+    }
+
     const updateQuery = `
                         UPDATE MemberCheckouts SET
                         checkoutDate = ?,
@@ -60,9 +70,7 @@ router.delete('/deleteMemberCheckout', (req, res) => {
             console.log('Database Error: ', error);
             return res.status(500).json({ error: 'MemberCheckouts Delete Failed'})
         }
-        if (results.affectedRows ===0) {
-            return res.status(404).json({ error: 'Checkout not found. Check your spelling!'})
-        }
+
         res.json({ message: `Checkout deleted successfully: ${results}` });
     });
 })
