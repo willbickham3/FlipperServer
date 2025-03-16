@@ -13,7 +13,7 @@ router.get('/LibraryMembers', (req, res) =>
     {
         const getAllLibraryMembers = 'SELECT * FROM LibraryMembers;';
 
-        db.pool.query(getAllLibraryMembers, function (err, results, fields){
+        db.pool.query(getAllLibraryMembers, function (error, results, fields){
             res.send(JSON.stringify(results))
         });
     });
@@ -33,10 +33,10 @@ router.post('/insertLibraryMember', async (req, res) => {
                         VALUES (?, ?, ?, ?);
                         `
 
-    db.pool.query(insertQuery, [email, username, name, passwordHash], (err, results) => {
-        if (err) {
-            console.error('Database error:', err);
-            return res.status(500).json({ err: 'Database create failed' });
+    db.pool.query(insertQuery, [email, username, name, passwordHash], (error, results) => {
+        if (error) {
+            console.error('Database error:', error);
+            return res.status(500).json({ error: 'Database create failed' });
         }
         res.json({ message: 'Library member created successfully' });
     });
@@ -57,10 +57,10 @@ router.put('/updateLibraryMember', async (req, res) => {
                         name = ?
                         WHERE libraryMemberID = ?;
                         `
-    db.pool.query(updateQuery, [email, username, name, libraryMemberID], (err, results) => {
-        if (err) {
-            console.error('Database error:', err);
-            return res.status(500).json({ err: 'Database update failed' });
+    db.pool.query(updateQuery, [email, username, name, libraryMemberID], (error, results) => {
+        if (error) {
+            console.error('Database error:', error);
+            return res.status(500).json({ error: 'Database update failed' });
         }
 
         res.json({ message: 'Library member updated successfully' });
@@ -71,11 +71,11 @@ router.put('/updateLibraryMember', async (req, res) => {
 router.delete('/deleteLibraryMember', async (req, res) => {
     const { email } = req.body;
     const deleteQuery = `DELETE FROM LibraryMembers WHERE email = ?;`
-    
-    db.pool.query(deleteQuery, [email], (err, results) => {
-        if (err) {
-            console.log('Database Error: ', err);
-            return res.status(500).json({ err: 'Database Delete Failed'})
+
+    db.pool.query(deleteQuery, [email], (error, results) => {
+        if (error) {
+            console.log('Database Error: ', error);
+            return res.status(500).json({ error: 'Database Delete Failed'})
         }
         
         res.json({ message: 'Library member deleted successfully' });
