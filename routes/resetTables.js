@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db-connector');
 
+// Reset Query to Reinsert Initial Sample Data
 router.post('/resetTables', (req, res) => {
     const resetQuery = 
     `
