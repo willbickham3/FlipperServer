@@ -199,3 +199,4 @@ http://classwork.engr.oregonstate.edu:6834
 
 # Citations
 Michael Curry (February 2025) Building app.js (Version 1.0) [Source code](https://canvas.oregonstate.edu/courses/1987790/assignments/9888486?module_item_id=25022943)
+akshaysobti15 (February 2025) Delimiters in SQL (Version 1.0) [Source](https://www.geeksforgeeks.org/delimiters-in-sql/)
