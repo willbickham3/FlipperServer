@@ -21,6 +21,10 @@ router.get('/MemberFees', (req, res) => {
 // INSERT a new fee
 router.post('/insertMemberFee', (req, res) => {
     const { feeAmount, title, email} = req.body
+
+    if (!feeAmount || !email) {
+        return res.status(400).json({ 'Error:': 'Fill fee amount, email, and title with valid input.'})
+    }
     const titleCheck = title === "" ? null : title;
     
     // Complicated Query //
@@ -53,7 +57,12 @@ router.post('/insertMemberFee', (req, res) => {
 // // UPDATE a fee
 router.put('/updateMemberFee', (req, res) => {
     const { email, title, feeAmount, paymentStatus, memberFeeID } = req.body;
+    
+    if (!email || !feeAmount || !paymentStatus || !memberFeeID) {
+        return res.status(400).json({ 'Error': 'Ensure all inputs are filled and valid inputs.' })
+    }
     const titleCheck = title === "" ? null : title;
+
     const updateQuery = `
                         UPDATE MemberFees SET 
                         libraryMemberID = (SELECT libraryMemberID FROM LibraryMembers WHERE email = ?),
@@ -88,9 +97,7 @@ router.delete('/deleteMemberFee', (req, res) => {
             console.log('Database Error: ', error);
             return res.status(500).json({ error: 'MemberFees Delete Failed'})
         }
-        if (results.affectedRows ===0) {
-            return res.status(404).json({ error: 'Fee not found. Check your spelling!'})
-        }
+
         res.json({ message: `Fee deleted successfully: ${results}` });
     });
 })
