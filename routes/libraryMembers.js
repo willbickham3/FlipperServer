@@ -9,7 +9,8 @@ async function hash(password) {
 }
 
 
-// Citation for the following CRUD functions:
+// Citation for the initial get request based on (all other code that is not cited 
+// is either original or a copy/alter from this first function):
 // Date : 02/23/2025
 // Based on:
 // Source URL: https://canvas.oregonstate.edu/courses/1987790/assignments/9888486?module_item_id=25022943
