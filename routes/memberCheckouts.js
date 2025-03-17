@@ -13,6 +13,7 @@ router.get('/MemberCheckouts', (req, res) => {
 router.post('/insertMemberCheckout', (req, res) => {
     const { email, title } = req.body
 
+    // Check provided information
     if (!email || !title) {
         return res.status(400).json({ 'Error': 'Member Email or Book Title missing.'})
     }
@@ -40,6 +41,7 @@ router.post('/insertMemberCheckout', (req, res) => {
 router.put('/updateMemberCheckout', (req, res) => {
     const { checkoutDate, returnDate, email, title, memberCheckoutID } = req.body;
 
+    // Check provided information
     if (!checkoutDate || !returnDate || !email || !title) {
         return res.status(400).json( {'Error:': 'Dates, email or title missing/incorrect format.'} )
     }

@@ -19,6 +19,8 @@ router.get('/Books', (req, res) => {
 // INSERT a new book
 router.post('/insertBook', (req, res) => {
     const { title, author, isbn, genre, publisher } = req.body;
+
+    // Check provided information
     if (!title || !author) {
         return res.status(400).json({ 'Error': 'Book Insert Failed. Please ensure title and author is filled.' })
     }
@@ -40,9 +42,12 @@ router.post('/insertBook', (req, res) => {
 // UPDATE a book
 router.put('/updateBook', (req, res) => {
     const { title, author, isbn, genre, publisher, bookID } = req.body;
+
+    // Check provided information
     if (!title || !author || !bookID) {
         return res.status(400).json({ 'Error': 'Book Data Missing/Incorrect. Check title or author!' })
     }
+
     const updateQuery = `
                         UPDATE Books SET
                         title = ?, author = ?, isbn = ?, genre = ?, publisher = ?
@@ -61,6 +66,7 @@ router.put('/updateBook', (req, res) => {
 router.delete('/deleteBook', (req, res) => {
     const { title } = req.body;
 
+    // Check provided information
     if (!title) {
         return res.status(400).json({ 'Error': 'Bo' })
     }

@@ -28,11 +28,14 @@ router.get('/LibraryMembers', (req, res) =>
 router.post('/insertLibraryMember', async (req, res) => {
     const { email, username, name, password } = req.body;
 
+    // Check provided information
     if (!email || !username || !name || !password) {
         return res.status(400).json({ 'Error': 'Email, username, name, or password missing/incorrect format.' })
     }
 
+    // Hash password
     const passwordHash = await hash(password);
+
     const insertQuery = `
                         INSERT INTO LibraryMembers 
                         (email, username, name, passwordHash) 
@@ -52,8 +55,9 @@ router.post('/insertLibraryMember', async (req, res) => {
 router.put('/updateLibraryMember', async (req, res) => {
     const { email, username, name, libraryMemberID } = req.body;
 
-    if (!email || !username || !name || !password) {
-        return res.status(400).json({ 'Error': 'Email, username, name, or password missing/incorrect format.' })
+    // Check provided information
+    if (!email || !username || !name) {
+        return res.status(400).json({ 'Error': 'Email, username, or name missing/incorrect format.' })
     }
 
     const updateQuery = `

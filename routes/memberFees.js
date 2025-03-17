@@ -54,10 +54,11 @@ router.post('/insertMemberFee', (req, res) => {
     })
 })
 
-// // UPDATE a fee
+// UPDATE a fee
 router.put('/updateMemberFee', (req, res) => {
     const { email, title, feeAmount, paymentStatus, memberFeeID } = req.body;
     
+    // Check provided information
     if (!email || !feeAmount || !paymentStatus || !memberFeeID) {
         return res.status(400).json({ 'Error': 'Ensure all inputs are filled and valid inputs.' })
     }
@@ -88,7 +89,7 @@ router.put('/updateMemberFee', (req, res) => {
     });
 });
 
-// // DELETE a fee
+// DELETE a fee
 router.delete('/deleteMemberFee', (req, res) => {
     const { memberFeeID } = req.body;
     const deleteQuery = `DELETE FROM MemberFees WHERE  memberFeeID = ?;`
