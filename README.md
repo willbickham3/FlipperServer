@@ -193,9 +193,9 @@ http://classwork.engr.oregonstate.edu:6834
 - DropDown Query (Titles): http://classwork.engr.oregonstate.edu:6834/dd/titles
 - DropDown Query (Email/Titles From MemberCheckouts): http://classwork.engr.oregonstate.edu:6834/dd/checkouts
 
-### Forever Commands for OSU DB Hosting
+<!-- ### Forever Commands for OSU DB Hosting
 - /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever start FlipperServer.js 
-- /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever stop FlipperServer.js
+- /nfs/stak/users/bickhamw/FlipperServer/node_modules/forever/bin/forever stop FlipperServer.js -->
 
 # Citations
 All code is original work besides the skeleton for queries (citation in libraryMembers.js) & learning about delimiters for stored procedures in SQL
